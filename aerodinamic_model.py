@@ -38,3 +38,17 @@ class BioFilterSim:
                         'PressureDrop_pa':dp,
                         'Safe_Limit': dp < 50 # 50 Pa is a common safety threshold
                     })
+        return pd.DataFrame(results)
+
+#execution
+sim = BioFilterSim()
+df = sim.run_optimization_study()
+
+# Filter for the most efficient "Safe" configuration
+optimal_configs = df[df['Safe_Limit'] == True].sort_values(by='PressureDrop_Pa')
+
+print("--- Top 5 Optimal Filter Configurations (Safe Range) ---")
+print(optimal_configs.head())
+
+# Save dataset for GitHub Portfolio
+df.to_csv('biofilter_simulation_data.csv', index=False)
