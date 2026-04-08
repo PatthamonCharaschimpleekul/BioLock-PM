@@ -35,7 +35,7 @@ class BioFilterSim:
                         'Velocity_ms':v,
                         'Permeability_k':k,
                         'Thickness_m':t,
-                        'PressureDrop_pa':dp,
+                        'PressureDrop_Pa':dp,
                         'Safe_Limit': dp < 50 # 50 Pa is a common safety threshold
                     })
         return pd.DataFrame(results)
