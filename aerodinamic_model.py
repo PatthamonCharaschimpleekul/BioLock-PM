@@ -4,49 +4,50 @@ import pandas as pd
 class PALF_BioFilter_Model:
     def __init__(self):
         self.air_viscosity = 1.81e-5
-        self.dielectric_constant = 2.5 # Approximate for PALF
         self.pm25_diameter = 2.5e-6   # 2.5 micrometers
         
-    def calculate_efficiency(self, thickness, velocity, porosity, electrostatic_charge):
+    def calculate_physics(self, thickness, velocity, orientation):
         """
-        Calculates Total Efficiency = Mechanical Capture + Electrostatic Capture
+        calculate pressure drop and efficiency reference from Micro-structure
         """
-        # Mechanical capture (Impaction & Interception)
-        η_mech = 1 - np.exp(-(1 - porosity) * thickness / (porosity * 1e-4))
+        # Permeability decrease when fiber is complex and curve (high orientation)
+        k_base = 5e-9 
+        k_effective = k_base * (1 - (orientation * 0.6))
         
-        # Electrostatic capture (Simplified Coulombic model)
-        η_elec = (electrostatic_charge * 1e-6) / (velocity + 1e-9) 
+        # Pressure Drop (Darcy's Law)
+        p_drop = (self.air_viscosity * thickness * velocity) / (k_effective + 1e-12)
         
-        total_η = min(η_mech + η_elec, 0.99) # Max 99%
-        return total_η
+        # 2. Efficiency (Mechanical + Electrostatic)
+        # High tortuosity high efficiency
+        mechanical_eff = 1 - np.exp(-(1.5 * orientation * thickness) / (1e-4))
+        
+        electrostatic_eff = (orientation * 0.2) / (velocity + 0.1)
+        total_efficiency = min(mechanical_eff + electrostatic_eff, 0.98) # Max 98%
+        return p_drop, total_efficiency
 
-    def generate_fiber_dataset(self):
-        # Range 0-5 cm (0.00 to 0.05 m)
-        thicknesses = np.linspace(0.0, 0.05, 50) 
-        # Simulation of Fiber Orientation: 0 (Straight) to 1 (Highly Curved/Entangled)
-        orientations = np.linspace(0, 1, 5) 
+    def generate_dataset(self):
+        # thickness 0-5 cm (0.00 - 0.05 m)
+        thicknesses = np.linspace(0.001, 0.05, 100) 
+        # curve 0 (straight) to 1 
+        orientations = np.linspace(0.1, 0.9, 10)
+        velocities = [2.0, 2.5, 3.0, 3.5] # ความเร็วลมพัดลมแอร์
         
-        results = []
+        data = []
         for t in thicknesses:
             for ori in orientations:
-                v = 2.5 # Fixed at typical AC speed
-                # Fiber curvature increases air resistance (Tortuosity)
-                k = 5e-9 * (1 - (ori * 0.5)) 
-                
-                # Pressure Drop Calculation
-                dp = (self.air_viscosity * t * v) / (k + 1e-12)
-                
-                # PM2.5 Capture Efficiency
-                eff = self.calculate_efficiency(t, v, 0.85, ori * 10)
-                
-                results.append({
-                    'Thickness_m': t,
-                    'Fiber_Curvature': ori,
-                    'PressureDrop_Pa': dp,
-                    'Capture_Efficiency': eff
-                })
-        return pd.DataFrame(results)
+                for v in velocities:
+                    dp, eff = self.calculate_physics(t, v, ori)
+                    data.append({
+                        'Thickness_m': t,
+                        'Fiber_Orientation': ori,
+                        'Air_Velocity': v,
+                        'Pressure_Drop_Pa': dp,
+                        'Capture_Efficiency': eff
+                    })
+        return pd.DataFrame(data)
 
+# create and save
 model = PALF_BioFilter_Model()
-df_v2 = model.generate_fiber_dataset()
-df_v2.to_csv('palf_advanced_data.csv', index=False)
+new_df = model.generate_dataset()
+new_df.to_csv('palf_training_data_v2.csv', index=False)
+print("New training data generated: palf_training_data_v2.csv")
