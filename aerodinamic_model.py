@@ -30,7 +30,7 @@ class PALF_BioFilter_Model:
         thicknesses = np.linspace(0.001, 0.05, 100) 
         # curve 0 (straight) to 1 
         orientations = np.linspace(0.1, 0.9, 10)
-        velocities = [2.0, 2.5, 3.0, 3.5] # ความเร็วลมพัดลมแอร์
+        velocities = [2.0, 2.5, 3.0, 3.5]
         
         data = []
         for t in thicknesses:
