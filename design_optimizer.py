@@ -8,57 +8,56 @@ try:
     scaler_X = joblib.load('scaler_X_v2.pkl')
     scaler_y = joblib.load('scaler_y_v2.pkl')
 except FileNotFoundError:
-    print("Error: Model files not found. Please run predictive_engine_v2.py first.")
+    print("Error: Required model files missing. Run predictive_engine_v2.py first.")
     exit()
 
-def run_design_optimization(target_velocity):
-    thicknesses = np.linspace(0.001, 0.05, 100) # 0.1cm to 5cm and 0.5 to 5
-    orientations = np.linspace(0.1, 0.9, 10)
+def run_exhaustive_simulation(target_velocity):
+    # Defining the range: 0.1cm to 5.0cm (1mm steps)
+    # Removing rounding to keep raw floating point precision
+    thickness_range = np.linspace(0.001, 0.05, 50) 
+    # Testing multiple curvatures to find the interaction effects
+    curvature_range = np.linspace(0.1, 0.9, 9)
     
-    potential_designs = []
+    all_results = []
     
-    for t in thicknesses:
-        for ori in orientations:
-            input_data = pd.DataFrame([[t, ori, target_velocity]], 
+    #print(f"{'Thickness (m)':<18} | {'Curvature':<10} | {'Pressure (Pa)':<15} | {'Efficiency (%)':<15} | {'Status'}")
+    #print("-" * 85)
+    
+    for t in thickness_range:
+        for c in curvature_range:
+            # Prepare raw input for AI
+            input_df = pd.DataFrame([[t, c, target_velocity]], 
                                      columns=['Thickness_m', 'Fiber_Orientation', 'Air_Velocity'])
-            input_scaled = scaler_X.transform(input_data)
             
-            # Predict Pressure and Efficiency
+            # AI Inference
+            input_scaled = scaler_X.transform(input_df)
             preds_scaled = model.predict(input_scaled)
             preds = scaler_y.inverse_transform(preds_scaled)
             
             p_drop = preds[0][0]
-            efficiency = preds[0][1]
+            eff = preds[0][1] * 100
             
-            # condition (Constraints): 50 Pa (safety of air condition)
-            if p_drop < 50:
-                score = efficiency * 100 
-                potential_designs.append({
-                    'Thickness_cm': t * 100,
-                    'Fiber_Curvature': ori,
-                    'Pressure_Drop_Pa': p_drop,
-                    'Efficiency_%': efficiency * 100,
-                    'Score': score
-                })
-    
-    if not potential_designs:
-        return None
-        
-    return pd.DataFrame(potential_designs).sort_values(by='Score', ascending=False)
+            status = "PASS" if p_drop < 50 else "FAIL"
+            
+            # Log raw data to console
+            #print(f"{t:<18.6f} | {c:<10.2f} | {p_drop:<15.4f} | {eff:<15.4f} | {status}")
+            
+            # Store all data points for CSV export
+            all_results.append({
+                'Thickness_m': t,
+                'Fiber_Curvature': c,
+                'Air_Velocity_ms': target_velocity,
+                'Pressure_Drop_Pa': p_drop,
+                'Efficiency_Percentage': eff,
+                'Safety_Status': status
+            })
 
-# simulation real environment 
-target_v = 2.5
-results = run_design_optimization(target_v)
+    # Save to CSV
+    df_output = pd.DataFrame(all_results)
+    df_output.to_csv('full_design_matrix.csv', index=False)
+    print(f"Simulation Complete. {len(df_output)} data points saved to 'full_design_matrix.csv'")
+    return df_output
 
-if results is not None:
-    best = results.iloc[0]
-    print(f"🚀 --- AI Recommended Design for SolidWorks ---")
-    print(f"1. Thickness: {best['Thickness_cm']:.2f} cm")
-    print(f"2. Fiber Curvature: {best['Fiber_Curvature']:.2f} (Scale 0-1)")
-    print(f"3. Predicted Pressure Drop: {best['Pressure_Drop_Pa']:.2f} Pa (Safe Limit < 50)")
-    print(f"4. Capture Efficiency: {best['Efficiency_%']:.2f} %")
-    
-    # Save as table
-    results.to_csv('optimized_design_specs.csv', index=False)
-else:
-    print("No safe design found for this velocity. Consider a thinner filter.")
+# EXECUTION
+# Simulating for standard AC outdoor unit fan speed
+final_results = run_exhaustive_simulation(target_velocity=2.5)
