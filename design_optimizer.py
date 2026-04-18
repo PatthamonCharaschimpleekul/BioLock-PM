@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import joblib
 
-# 1. LOAD MODEL & SCALERS
+# LOAD MODEL & SCALERS
 try:
     model = joblib.load('palf_model_v2.pkl')
     scaler_X = joblib.load('scaler_X_v2.pkl')
@@ -12,7 +12,7 @@ except FileNotFoundError:
     exit()
 
 def run_design_optimization(target_velocity):
-    thicknesses = np.linspace(0.001, 0.05, 100) # 0.5cm to 5cm
+    thicknesses = np.linspace(0.001, 0.05, 100) # 0.1cm to 5cm and 0.5 to 5
     orientations = np.linspace(0.1, 0.9, 10)
     
     potential_designs = []
@@ -53,8 +53,8 @@ results = run_design_optimization(target_v)
 if results is not None:
     best = results.iloc[0]
     print(f"🚀 --- AI Recommended Design for SolidWorks ---")
-    print(f"1. Thickness (ความหนา): {best['Thickness_cm']:.2f} cm")
-    print(f"2. Fiber Curvature (ความโค้งใย): {best['Fiber_Curvature']:.2f} (Scale 0-1)")
+    print(f"1. Thickness: {best['Thickness_cm']:.2f} cm")
+    print(f"2. Fiber Curvature: {best['Fiber_Curvature']:.2f} (Scale 0-1)")
     print(f"3. Predicted Pressure Drop: {best['Pressure_Drop_Pa']:.2f} Pa (Safe Limit < 50)")
     print(f"4. Capture Efficiency: {best['Efficiency_%']:.2f} %")
     
