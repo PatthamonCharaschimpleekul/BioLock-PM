@@ -15,8 +15,10 @@ class PALF_BioFilter_Model:
         k_effective = k_base * (1 - (orientation * 0.6))
         
         # Pressure Drop (Darcy's Law)
-        p_drop = (self.air_viscosity * thickness * velocity) / (k_effective + 1e-12)
-        
+        pleat_factor = 3.0 # floding increase the area by 3 times. wind speed reduced to 1/3
+        p_drop_original = (self.air_viscosity * thickness * velocity) / (k_effective + 1e-12)
+        p_drop = p_drop_original / pleat_factor
+
         # 2. Efficiency (Mechanical + Electrostatic)
         # High tortuosity high efficiency
         mechanical_eff = 1 - np.exp(-(1.5 * orientation * thickness) / (1e-4))
