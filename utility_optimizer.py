@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 def find_pleated_hero_design(csv_file):
     df = pd.read_csv(csv_file)
