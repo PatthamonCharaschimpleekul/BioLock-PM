@@ -4,64 +4,64 @@
 ---
 
 ## 🚀 Executive Summary
-**BioLock-PM** is an innovative engineering solution designed to transform standard residential and commercial Air Conditioning (AC) outdoor units into a city-wide air purification network. By utilizing high-porosity agricultural waste (Pineapple Leaf Fiber - PALF) and natural binders, this project captures PM2.5 pollutants and "locks" them permanently into cement-based construction materials, preventing re-emission into the atmosphere.
+**BioLock-PM** is an innovative engineering solution designed to transform standard residential and commercial Air Conditioning (AC) outdoor units into a city-wide air purification network. By utilizing high-porosity agricultural waste (**Pineapple Leaf Fiber - PALF**) and natural binders, this project captures PM2.5 pollutants and "locks" them permanently into cement-based construction materials, preventing re-emission into the atmosphere.
 
 This project bridges the gap between **Material Science**, **Fluid Dynamics**, and **Data-Driven Optimization** to create a circular economy for urban air quality.
 
 ---
 
-## 💡 The Problem & The "Bypass" Innovation
-Traditional air filters often cause high **Static Pressure**, leading to AC compressor overheating and increased energy consumption. 
-
-**Our Solution:**
-1. **Bio-Sandwich Filter:** A multi-layered PALF structure coated with natural *Yang Oil* (High-tack, Hydrophobic) to trap micro-particles without chemical synthetic waste.
-2. **Passive Bypass Valve:** A mechanical safety reed valve designed to open automatically if the filter becomes clogged, ensuring the AC unit's longevity and energy efficiency—**no electronics required.**
+## 💡 The "Why": Sustainability Meets Innovation
+* **The Problem:** Standard HEPA filters are often made of synthetic polymers (plastic waste) and create high air resistance, leading to AC compressor overheating and increased energy consumption.
+* **The Solution:** 1.  **Bio-Sandwich Filter:** A multi-layered PALF structure coated with natural *Yang Oil* (High-tack, Hydrophobic) to trap micro-particles without chemical synthetic waste.
+    2.  **Passive Bypass Valve:** A mechanical safety reed valve designed to open automatically if the filter becomes clogged, ensuring the AC unit's longevity—**no electronics required.**
 
 ---
 
 ## 🛠️ Engineering & AI Integration
 
-### 1. Airflow Optimization Model (Mathematical Modeling)
-To ensure the filter does not damage the AC unit, I developed a Python-based simulation using **Darcy’s Law** for flow through porous media:
+### 1. AI-Driven Optimization (The Results)
+Using a Python-based simulation to analyze over 200 variations, the "Hero Design" was selected based on optimal performance:
+* **Capture Efficiency:** 98.01% (Optimized via Fiber Curvature 0.20 for static charge).
+* **Pressure Drop:** **5.46 Pa** (Significantly lower than the 50 Pa safety threshold).
+* **Material Thickness:** 0.5 cm (Optimized for balance between filtration and airflow).
 
-$$\Delta P = \frac{\mu L v}{\kappa}$$
+### 2. Fluid Dynamics Modeling
+I applied **Darcy’s Law** to ensure safe operation:
+$$\Delta P = \frac{\mu \cdot L \cdot v}{\kappa}$$
+* **$\Delta P$:** Pressure Drop.
+* **$L$:** Filter thickness (0.5 cm).
+* **$\kappa$:** Permeability optimized based on PALF density and fiber orientation.
 
-* **$\Delta P$ (Pressure Drop):** Monitored to stay within the manufacturer's safety margin (< 50 Pa).
-* **$\kappa$ (Permeability):** Optimized based on PALF density and fiber orientation.
-
-### 2. Sequestration Analytics (Data Science)
-The project includes a data model to calculate the **Environmental Impact Quotient (EIQ)**:
-* Predicts PM2.5 capture volume based on local AQI data and AC runtime.
-* Calculates the structural integrity and "Dust-Lock" efficiency when integrated into concrete matrices.
+### 3. Precision 3D Design (Fusion 360)
+* **Pleated Configuration:** Engineered a 16.6mm Pitch and 25mm Depth to increase surface area by **300%** (Pleat Factor 3).
+* **Resilient Problem Solving:** Overcame "Self-Intersection" geometry errors during modeling by applying **2mm Fillets**. This mimics the natural bend radius of bio-fibers, ensuring structural integrity and preventing software rendering crashes.
 
 ---
 
 ## 🧱 The Circular Economy: "Dust-to-Brick"
-Unlike HEPA filters that end up in landfills, BioLock-PM filters follow a **Zero-Waste Lifecycle**:
-1. **Capture:** 30-day filtration cycle on the AC outdoor unit.
-2. **Lock:** Saturated filters are shredded and mixed into a cement-sand matrix.
-3. **Build:** Transformation into non-structural "Bio-Bricks" or planters, effectively removing PM2.5 from the biological cycle forever.
+BioLock-PM follows a **Zero-Waste Lifecycle**:
+1.  **Capture:** 30-day filtration cycle on the AC outdoor unit.
+2.  **Lock:** Saturated filters are shredded and mixed into a cement-sand matrix.
+3.  **Build:** Transformation into non-structural **"Bio-Bricks"**, effectively removing PM2.5 from the biological cycle forever.
 
 ---
 
-## 📈 Key Highlights for Portfolio
-* **Cost-Effective:** Production cost estimated at **<$1.50 USD** per unit using agricultural by-products.
-* **User-Centric Design:** Tool-free installation using flexible rubber magnets; appeals to cost-conscious users by acting as a "Pre-filter" to reduce AC maintenance costs.
-* **Scalable:** Designed for rapid deployment in high-density urban areas (e.g., Bangkok, Harbin).
+## 🚧 Project Challenges & Learning
+> *"Engineering is about resilience. During the 3D modeling phase, the complexity of the 5mm pleated geometry caused multiple system crashes. I solved this by redesigning the constraints and using parametric patterns, proving that even the most complex AI-derived data can be translated into a manufacturable physical product."*
+
+---
+
+## 📊 Key Highlights
+* **Cost-Effective:** Production cost estimated at **<$1.50 USD** per unit.
+* **User-Centric:** Tool-free installation using flexible rubber magnets.
+* **Scalable:** Designed for rapid deployment in high-density urban areas like Bangkok or Harbin.
 
 ---
 
 ## 🛠️ Tech Stack & Skills
-* **Engineering:** Fluid Dynamics, Heat Transfer, Material Science (Biocomposites).
-* **Software:** Python (NumPy, Pandas, Matplotlib) for Simulation & Optimization.
-* **Management:** Circular Economy Design, Cost Analysis, Reverse Logistics Planning.
-* **Languages:** Thai (Native), English (IELTS 5.0), Chinese (HSK 4).
+* **Engineering:** Fluid Dynamics, Material Science, 3D CAD (Autodesk Fusion 360).
+* **Software:** Python (NumPy, Pandas, Scikit-learn) for Simulation.
+* **Management:** Circular Economy Design, Patent Strategy, Logistics Planning.
 
 ---
-
-## 📝 Patent/IP Potential
-* **Claim 1:** Method for fabricating multi-layer PALF filters with gradient tackiness for PM2.5 capture.
-* **Claim 2:** Passive pressure-regulated bypass mechanism for external AC filtration units.
-
----
-*Developed by **Patthamon Charaschimpleekul** | Dual Degree Candidate in B.Eng. AI & Management Engineering.*
+**Developed by Patthamon Charaschimpleekul** *Dual Degree Candidate in B.Eng. AI & Management Engineering*
