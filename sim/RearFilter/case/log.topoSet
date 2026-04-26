@@ -1,0 +1,50 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 12-8e8552546d20
+Exec   : C:/blueCFD-Core-2024/OpenFOAM-12/platforms/mingw_w64Gcc122DPInt32Opt/bin/topoSet.exe -dict system/topoSetZonesDict
+Date   : Apr 26 2026
+Time   : 18:23:01
+Host   : "TOROKO"
+PID    : 24808
+I/O    : uncollated
+Case   : D:/mai/vscode/BioLockPM/sim/RearFilter/case
+nProcs : 1
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create polyMesh for time = 0
+
+Reading "system/topoSetZonesDict"
+
+Time = 0s
+    mesh not changed.
+Created cellSet SelectedSurface
+    Applying source surfaceToCell
+topoSet.exe : 
+At D:\mai\vscode\BioLockPM\sim\RearFilter\case\Allrun.ps1:4 char:5
++     & $cmd $args 2>&1 | tee log.$sol
++     ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+--> FOAM FATAL ERROR: 
+Cannot read "constant/triSurface/.stl"
+
+    From function bool Foam::triSurface::read(const Foam::fileName&, const Foam::word&, bool)
+    in file triSurface/triSurface.C at line 306.
+
+FOAM exiting
+

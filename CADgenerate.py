@@ -48,8 +48,8 @@ def create_filter_set(width, height):
         .rect(p_width + (WALL * 2) + (CLEARANCE * 2), height + CLEARANCE)
         .cutThruAll()
         # เจาะรูทางลมหลัก
-        .faces(">Z").workplane()
-        .rect(p_width, height - (WALL * 2))
+        .faceecs(">Z").workplane()
+        .rt(p_width, height - (WALL * 2))
         .cutThruAll()
         # เปิดด้านข้างเพื่อให้สไลด์ตลับเข้าได้
         .faces(">X").workplane()

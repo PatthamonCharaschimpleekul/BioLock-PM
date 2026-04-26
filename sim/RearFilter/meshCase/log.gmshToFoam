@@ -1,0 +1,77 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 12-8e8552546d20
+Exec   : C:/blueCFD-Core-2024/OpenFOAM-12/platforms/mingw_w64Gcc122DPInt32Opt/bin/gmshToFoam.exe gmsh/Box_Geometry.msh
+Date   : Apr 26 2026
+Time   : 18:00:48
+Host   : "TOROKO"
+PID    : 9104
+I/O    : uncollated
+Case   : D:/mai/vscode/BioLockPM/sim/RearFilter/meshCase
+nProcs : 1
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Starting to read mesh format at line 2
+Read format version 2.2  ascii 0
+
+Starting to read physical names at line 5
+Physical names:5
+    Surface 2	patch_1_0
+    Surface 3	patch_2_0
+    Surface 4	patch_3_0
+    Surface 5	patch_4_0
+    Volume 1	Internal
+
+Starting to read points at line 13
+Vertices to be read:6608
+Vertices read:6608
+
+Starting to read cells at line 6624
+Cells to be read:37406
+
+Mapping region 3 to Foam patch 0
+Mapping region 4 to Foam patch 1
+Mapping region 2 to Foam patch 2
+Mapping region 5 to Foam patch 3
+Mapping region 1 to Foam cellZone 0
+Cells:
+    total:31534
+    hex  :0
+    prism:0
+    pyr  :0
+    tet  :31534
+
+CellZones:
+Zone	Size
+    0	31534
+
+Skipping tag  at line 44033
+Patch 0 gets name patch_2_0
+Patch 1 gets name patch_3_0
+Patch 2 gets name patch_1_0
+Patch 3 gets name patch_4_0
+
+Finding faces of patch 0
+Finding faces of patch 1
+Finding faces of patch 2
+Finding faces of patch 3
+
+FaceZones:
+Zone	Size
+
+Writing zone 0 to cellZone Internal and cellSet
+End
+

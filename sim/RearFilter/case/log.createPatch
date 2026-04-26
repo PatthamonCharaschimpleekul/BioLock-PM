@@ -1,0 +1,82 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+/*   Windows 32 and 64 bit porting by blueCAPE: http://www.bluecape.com.pt   *\
+|  Based on Windows porting (2.0.x v4) by Symscape: http://www.symscape.com   |
+\*---------------------------------------------------------------------------*/
+Build  : 12-8e8552546d20
+Exec   : C:/blueCFD-Core-2024/OpenFOAM-12/platforms/mingw_w64Gcc122DPInt32Opt/bin/createPatch.exe -overwrite
+Date   : Apr 26 2026
+Time   : 18:23:01
+Host   : "TOROKO"
+PID    : 16640
+I/O    : uncollated
+Case   : D:/mai/vscode/BioLockPM/sim/RearFilter/case
+nProcs : 1
+SigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create polyMesh for time = 0
+
+Reading "createPatchDict"
+
+Adding new patch inlet as patch 4 from 
+{
+    type            patch;
+}
+
+Adding new patch wall as patch 5 from 
+{
+    type            wall;
+}
+
+Adding new patch wall001 as patch 6 from 
+{
+    type            wall;
+}
+
+Adding new patch outlet001 as patch 7 from 
+{
+    type            patch;
+}
+
+Adding new patch defaultFaces as patch 8 from 
+{
+    type            patch;
+}
+
+
+Moving faces from patch patch_1_0 to patch 4
+Moving faces from patch patch_2_0 to patch 5
+Moving faces from patch patch_3_0 to patch 6
+Moving faces from patch patch_4_0 to patch 7
+--> FOAM Warning : 
+    From function const Foam::HashTable<Foam::List<int>, Foam::word>& Foam::polyBoundaryMesh::groupPatchIndices() const
+    in file meshes/polyMesh/polyBoundaryMesh/polyBoundaryMesh.C at line 506
+    Removing patchGroup 'wall' which clashes with patch 5 of the same name.
+--> FOAM Warning : 
+    From function Foam::labelHashSet Foam::polyBoundaryMesh::patchSet(const Foam::UList<Foam::wordRe>&, bool, bool) const
+    in file meshes/polyMesh/polyBoundaryMesh/polyBoundaryMesh.C at line 814
+    Cannot find any patch or group names matching patch_0_0
+
+Doing topology modification to order faces.
+
+Removing patches with no faces in them.
+
+Removing zero-sized patch patch_2_0 type patch at position 0
+Removing zero-sized patch patch_3_0 type patch at position 1
+Removing zero-sized patch patch_1_0 type patch at position 2
+Removing zero-sized patch patch_4_0 type patch at position 3
+Removing patches.
+Writing repatched mesh to 0
+
+End
+

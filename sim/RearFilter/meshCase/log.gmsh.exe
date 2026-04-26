@@ -1,0 +1,85 @@
+Info    : Running 'C:\CFD\gmsh-4.15.2-Windows64\gmsh.exe -nt 1 - gmsh/Box_Geometry.geo' [Gmsh 4.15.2, 1 node, max. 1 thread]
+Info    : Started on Sun Apr 26 18:00:42 2026
+Info    : Reading 'gmsh/Box_Geometry.geo'...
+Info    : Reading 'gmsh/Box_Geometry.brep'...
+Info    : Done reading 'gmsh/Box_Geometry.brep'
+Info    : Meshing 1D...
+Info    : [  0%] Meshing curve 1 (Line)
+Info    : [ 10%] Meshing curve 2 (Line)
+Info    : [ 20%] Meshing curve 3 (Line)
+Info    : [ 30%] Meshing curve 4 (Line)
+Info    : [ 40%] Meshing curve 5 (Line)
+Info    : [ 50%] Meshing curve 6 (Line)
+Info    : [ 60%] Meshing curve 7 (Line)
+Info    : [ 60%] Meshing curve 8 (Line)
+Info    : [ 70%] Meshing curve 9 (Line)
+Info    : [ 80%] Meshing curve 10 (Line)
+Info    : [ 90%] Meshing curve 11 (Line)
+Info    : [100%] Meshing curve 12 (Line)
+Info    : Done meshing 1D (Wall 0.00152206s, CPU 0s)
+Info    : Meshing 2D...
+Info    : [  0%] Meshing surface 1 (Plane, Delaunay)
+Info    : [ 20%] Meshing surface 2 (Plane, Delaunay)
+Info    : [ 40%] Meshing surface 3 (Plane, Delaunay)
+Info    : [ 60%] Meshing surface 4 (Plane, Delaunay)
+Info    : [ 70%] Meshing surface 5 (Plane, Delaunay)
+Info    : [ 90%] Meshing surface 6 (Plane, Delaunay)
+Info    : Done meshing 2D (Wall 0.0640388s, CPU 0.03125s)
+Info    : Meshing 3D...
+Info    : 3D Meshing 1 volume with 1 connected component
+Info    : Input mesh hash 2a55342ca6ca9074
+Info    : Creating an empty mesh with 2938 vertices
+Info    : Initialization of tet. mesh
+Info    : Delaunay of       2934 points on   1 threads - mesh.nvert: 4         
+Info    : Recovering 12 missing facet(s)
+Info    : Recover Delaunay
+Info    : All volumes of the BRep were found and colorized accordingly
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of       5892 points on   1 threads - mesh.nvert: 2938      
+Info    :           -       4985 points filtered
+Info    :           =        907 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of       6216 points on   1 threads - mesh.nvert: 3845      
+Info    :           -       4618 points filtered
+Info    :           =       1598 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of       2548 points on   1 threads - mesh.nvert: 5443      
+Info    :           -       1588 points filtered
+Info    :           =        960 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of        294 points on   1 threads - mesh.nvert: 6403      
+Info    :           -        103 points filtered
+Info    :           =        191 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of         16 points on   1 threads - mesh.nvert: 6594      
+Info    :           -          3 points filtered
+Info    :           =         13 points added
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Delaunay of          1 points on   1 threads - mesh.nvert: 6607      
+Info    : Computing interpolated mesh sizes...
+Info    : Done computing interpolated mesh sizes
+Info    : Improving       1095 tet. on   1 thrd (S & ER)
+Info    : Improving         45 tet. on   1 thrd (S & ER)
+Info    : Improving         10 tet. on   1 thrd (S & ER)
+Info    : Improving          5 tet. on   1 thrd (S & ER)
+Info    : Improving          5 tet. on   1 thrd (GSC)
+Info    :  	Final tet. mesh contains 37406 tetrahedra
+Info    :  	Final tet. mesh contains 6608 vertices
+Info    : tEmptyMesh  	 = 	    0.011
+Info    : tVerifyBnd  	 = 	    0.000
+Info    : tBndRecovery	 = 	    0.020
+Info    : tConvertMesh	 = 	    0.000
+Info    : tRefine     	 = 	    0.041
+Info    : tOptimize   	 = 	    0.001
+Info    : Done meshing 3D (Wall 0.0789771s, CPU 0.078125s)
+Info    : 6608 nodes 37658 elements
+Info    : Writing 'gmsh/Box_Geometry.msh'...
+Info    : Done writing 'gmsh/Box_Geometry.msh'
+Info    : Done reading 'gmsh/Box_Geometry.geo'
+Info    : Stopped on Sun Apr 26 18:00:43 2026 (From start: Wall 0.216317s, CPU 0.171875s)
