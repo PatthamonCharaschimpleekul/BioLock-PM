@@ -1,4 +1,6 @@
 # 🌿 BioLock-PM: Autonomous Bio-Filter & Carbon Sequestration Ecosystem
+ชุดอุปกรณ์กรองอากาศวัสดุชีวภาพแบบกระตุ้นด้วยความร้อนและระบบรวมกลุ่มตะกอนฝุ่นละออง
+(Pending Petty Patent no: 2603002204)
 > **The Living Filter:** An AI-Optimized, Low-Cost Solution to Sequestrate PM2.5 into Sustainable Construction Materials.
 
 ---
